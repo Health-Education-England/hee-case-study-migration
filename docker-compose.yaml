@@ -1,0 +1,14 @@
+version: "3.0"
+services:
+  brxm-case-studies-migrator:
+    build: .
+    volumes:
+      - ./src:/scripts
+      - ./input:/input
+      - ./output:/output
+    environment:
+      INPUT_CASE_STUDIES_JSON_FILE_PATH: /input/<case_study_json_file_name>
+      # e.g. INPUT_CASE_STUDIES_JSON_FILE_PATH: /input/10-Impact-Case-Studies-2021-02-12.json
+      # Must end with trailing slash
+      OUTPUT_DIRECTORY: /output/
+      DEBUG: 'False'
